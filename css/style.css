@@ -173,6 +173,16 @@ img,svg{ display:block; max-width:100%; }
   width:100%; max-width:900px;
   height:min(70vh, 560px);
 }
+/* 星宝跳舞动画封面（APNG 透明背景，透出薄荷绿主色） */
+.hero-cover{
+  position:absolute;
+  top:50%; left:50%;
+  transform:translate(-50%, -52%);
+  width:min(56vh, 440px);
+  z-index:2;
+  pointer-events:none;
+  filter:drop-shadow(0 14px 30px rgba(0,0,0,0.18));
+}
 .sc{
   position:absolute;
   animation:float 3s ease-in-out infinite;
