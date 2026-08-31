@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavHighlight();
 });
 
-// ========== 流星生成（从右上向左下划落） ==========
+// ========== 流星生成（从左上向右下坠落） ==========
 function createClouds() {
   const container = document.getElementById('clouds');
   if (!container) return;
@@ -30,8 +30,8 @@ function createClouds() {
     const size = 40 + Math.random() * 50;
     meteor.style.width = size + 'px';
     meteor.style.height = (size * 0.35) + 'px';
-    // 随机起始位置：右上区域（60%~120% 屏幕宽度）
-    meteor.style.left = (60 + Math.random() * 60) + 'vw';
+    // 随机起始位置：左上区域（-20%~40% 屏幕宽度）
+    meteor.style.left = (-20 + Math.random() * 60) + 'vw';
     // 随机动画时长 4~9s（流星速度比云朵快）
     const dur = 4 + Math.random() * 5;
     meteor.style.animationDuration = dur + 's';
