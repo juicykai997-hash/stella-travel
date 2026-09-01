@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="36" viewBox="0 0 64 36">
+  <!-- 参考图造型：圆润云朵状草丛，5个圆凸，黑色粗描边，鲜绿填充 -->
+  <path d="M6,32
+           C2,32 2,24 8,22
+           C8,10 20,6 22,16
+           C22,2 38,2 38,16
+           C42,8 56,12 56,22
+           C62,24 62,32 58,32 Z"
+        fill="#63B849" stroke="#1a1a1a" stroke-width="3.5" stroke-linejoin="round"/>
+</svg>

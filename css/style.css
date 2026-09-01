@@ -14,7 +14,7 @@
   --nav-h:64px;
 }
 
-html{ scroll-behavior:smooth; scroll-snap-type:y mandatory; }
+html{ scroll-behavior:smooth; scroll-snap-type:y mandatory; cursor:url('img/cursor-grass.png') 18 21, auto; }
 body{
   font-family:"Noto Sans SC","ZCOOL KuaiLe","PingFang SC",sans-serif;
   background:var(--mint);
@@ -24,6 +24,10 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 button{ font-family:inherit; cursor:pointer; border:none; background:none; }
+/* 可交互元素保持草堆光标 */
+a, button, .char-item, .hero-cover, .vinyl-player, .down-arrow, .photo, .mv-card { cursor: url('img/cursor-grass.png') 18 21, pointer; }
+/* 文本区域用草堆 + text 兜底 */
+input, textarea { cursor:url('img/cursor-grass.png') 18 21, text; }
 a{ color:inherit; text-decoration:none; }
 img,svg{ display:block; max-width:100%; }
 
