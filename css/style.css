@@ -306,10 +306,10 @@ img,svg{ display:block; max-width:100%; }
 }
 .char-img{
   position:relative; z-index:1;
-  width:92%;
-  height:92%;
+  width:76%;
+  height:76%;
   object-fit:contain;
-  transform:translateY(4px);
+  transform:translateY(3px);
 }
 .char-item h3{
   font-family:"Yusei Magic","ZCOOL KuaiLe",sans-serif;
@@ -679,7 +679,7 @@ img,svg{ display:block; max-width:100%; }
   .vinyl-player{ width:80px; right:10px; bottom:10px; }
   .vinyl-svg{ width:80px; height:80px; }
   .vinyl-label{ font-size:10px; padding:1px 8px; }
-  .char-grid{ grid-template-columns:repeat(2, 1fr); gap:14px; }
+  .char-grid{ grid-template-columns:repeat(2, 1fr); gap:20px; }
   .diary-row{
     grid-template-columns:50px 1fr 90px;
     gap:10px;
