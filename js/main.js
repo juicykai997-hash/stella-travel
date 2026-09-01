@@ -8,13 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. 黑胶唱片机播放控制
   initVinylPlayer();
 
-  // 3. CHARACTER 页面表情点击说话
+  // 3. 首页星宝封面：鼠标触碰才动 + 可爱音效
+  initHeroCover();
+
+  // 4. CHARACTER 页面表情点击说话
   initCharClick();
 
-  // 4. 生成沙滩沙粒
+  // 5. 生成沙滩沙粒
   createSandDots();
 
-  // 5. 导航高亮（当前滚动到哪屏）
+  // 6. 导航高亮（当前滚动到哪屏）
   initNavHighlight();
 });
 
@@ -58,6 +61,50 @@ function createClouds() {
       </svg>`;
     container.appendChild(meteor);
   }
+}
+
+// ========== 首页星宝封面：触碰才动 + 可爱音效 ==========
+function initHeroCover() {
+  const cover = document.getElementById('heroCover');
+  if (!cover) return;
+
+  const staticSrc = cover.getAttribute('src');
+  const animSrc = cover.dataset.anim;
+  if (!animSrc) return;
+
+  // 预加载动画 APNG（首次 hover 秒开）
+  const preloader = new Image();
+  preloader.src = animSrc;
+
+  // 触碰/移开：切换 APNG 与静态帧（重新赋值 src 会让 APNG 从头播放）
+  cover.addEventListener('mouseenter', () => {
+    cover.src = animSrc;
+    cover.classList.remove('playing');
+    void cover.offsetWidth; // 重启 wiggle 动画
+    cover.classList.add('playing');
+    playHeroSound();
+  });
+  cover.addEventListener('mouseleave', () => {
+    cover.src = staticSrc;
+    cover.classList.remove('playing');
+  });
+
+  // 触屏设备：点一下开始播放（已在播放中则不重复触发）
+  cover.addEventListener('touchstart', () => {
+    if (!cover.classList.contains('playing')) {
+      cover.src = animSrc;
+      cover.classList.add('playing');
+      playHeroSound();
+    }
+  }, { passive: true });
+}
+
+// 触碰星宝的可爱音效："叮♪ 咚~♪"上扬双音 + 轻快尾音
+function playHeroSound() {
+  ensureAudioCtx();
+  tone({ type: 'sine',     f0: 523, f1: 784,  dur: 0.12, vol: 0.2 });
+  tone({ type: 'triangle', f0: 784, f1: 1046, dur: 0.14, vol: 0.18, delay: 0.09 });
+  tone({ type: 'sine',     f0: 1046, f1: 1318, dur: 0.18, vol: 0.14, delay: 0.2, vib: 14 });
 }
 
 // ========== 黑胶唱片机 ==========
