@@ -561,12 +561,12 @@ img,svg{ display:block; max-width:100%; }
   z-index:5;
   animation:swimBob 3s ease-in-out infinite;
 }
-/* 咖啡星宝（右侧） */
+/* 咖啡星宝（右上角，避开顶部导航） */
 .island-coffee{
   position:absolute;
-  bottom:6%;
-  right:2%;
-  width:min(200px, 20vw);
+  top:calc(var(--nav-h) + 12px);
+  right:3%;
+  width:min(110px, 11vw);
   z-index:5;
   animation:loungerRock 3s ease-in-out infinite;
 }
